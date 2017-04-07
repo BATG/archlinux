@@ -42,7 +42,6 @@ PKGIGNORE=(
     systemd-sysvcompat
     usbutils
     vi
-    xfsprogs
 )
 IFS=','
 PKGIGNORE="${PKGIGNORE[*]}"
@@ -60,7 +59,7 @@ case "$(uname -m)" in
 		PACMAN_CONF='./mkimage-archarm-pacman.conf'
 		PACMAN_MIRRORLIST='Server = https://archive.archlinux.org/repos/'$REPO_DATE'/$repo/os/$arch'
 		PACMAN_EXTRA_PKGS='archlinuxarm-keyring'
-		EXPECT_TIMEOUT=120
+		EXPECT_TIMEOUT=12000
 		ARCH_KEYRING=archlinuxarm
 		DOCKER_IMAGE_NAME=archlinuxarm
 		;;
@@ -68,7 +67,7 @@ case "$(uname -m)" in
 		PACMAN_CONF='./mkimage-arch-pacman.conf'
 		PACMAN_MIRRORLIST='Server = https://archive.archlinux.org/repos/'$REPO_DATE'/$repo/os/$arch'
 		PACMAN_EXTRA_PKGS=''
-		EXPECT_TIMEOUT=60
+		EXPECT_TIMEOUT=6000
 		ARCH_KEYRING=archlinux
 		DOCKER_IMAGE_NAME=archlinux
 		;;
